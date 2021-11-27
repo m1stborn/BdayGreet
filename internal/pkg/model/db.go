@@ -38,7 +38,7 @@ func (d *Database) Init(uri string) {
 	}
 
 	// insert all the data
-	for _, user := range DBrecord {
+	for _, user := range DBRecords {
 		d.CreateUser(&user)
 	}
 }

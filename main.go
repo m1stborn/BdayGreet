@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/m1stborn/BdayGreet/internal/pkg/model"
+
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -19,12 +21,11 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func main() {
-	fmt.Println(port, dbUri)
+	model.DB.Init(dbUri)
 
 	router := httprouter.New()
 
 	router.GET("/", Index)
 
-	//log.Fatal(http.ListenAndServe(":8080", router))
 	log.Fatal(http.ListenAndServe(port, router))
 }

@@ -14,7 +14,7 @@ type User struct {
 }
 
 var (
-	DBrecord = []User{
+	DBRecords = []User{
 		{
 			FirstName: "Robert",
 			LastName:  "Yen",
@@ -55,7 +55,6 @@ var (
 
 func (d *Database) CreateUser(user *User) {
 	if err := d.db.Create(user).Error; err != nil {
-		//TODO handle error
 		//logger.WithFields(log.Fields{
 		//	"pkg":  "model",
 		//	"func": "CreateUser",
