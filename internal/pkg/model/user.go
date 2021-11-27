@@ -65,12 +65,9 @@ func (d *Database) CreateUser(user *User) {
 	}
 }
 
-func (d *Database) GetUserByDate(accountID string) ([]User, error) {
+func (d *Database) GetUserByDate(month int, day int) ([]User, error) {
 	var users []User
-	d.db.Where("month(birth) = ? and day(birth) = ?", 8, 8).Find(&users)
+	d.db.Where("DATE_PART('month', birth) = ? and DATE_PART('day', birth) = ?", month, day).Find(&users)
 
-	for _, user := range users {
-		fmt.Println(user)
-	}
 	return users, nil
 }
