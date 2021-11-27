@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 
+	. "github.com/m1stborn/BdayGreet/internal/pkg/handler"
 	"github.com/m1stborn/BdayGreet/internal/pkg/model"
 
 	"github.com/julienschmidt/httprouter"
@@ -26,6 +27,7 @@ func main() {
 	router := httprouter.New()
 
 	router.GET("/", Index)
+	router.GET("/api/bdaygreet", HandleBdayGreet)
 
 	log.Fatal(http.ListenAndServe(port, router))
 }
