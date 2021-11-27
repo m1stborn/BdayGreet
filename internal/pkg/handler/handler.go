@@ -12,7 +12,7 @@ import (
 func HandleBdayGreet(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	users, _ := model.DB.GetUserByDate(8, 8)
 	for _, user := range users {
-		replyMsg := fmt.Sprintf("Subject: Happy birthday!\nHappy birthday, dear %s!\n", user.FirstName)
+		replyMsg := fmt.Sprintf("Subject: Happy birthday!\nHappy birthday, dear %s, %s!\n", user.LastName, user.FirstName)
 		fmt.Fprintf(w, replyMsg)
 	}
 }
