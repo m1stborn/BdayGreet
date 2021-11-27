@@ -42,3 +42,12 @@ func (d *Database) Init(uri string) {
 		d.CreateUser(&user)
 	}
 }
+
+func (d *Database) TestConnect(uri string) {
+	db, err := gorm.Open(postgres.Open(uri), &gorm.Config{})
+	if err != nil {
+		fmt.Println("DB connection Error")
+	}
+
+	d.db = db
+}

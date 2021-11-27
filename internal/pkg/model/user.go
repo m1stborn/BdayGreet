@@ -2,10 +2,12 @@ package model
 
 import (
 	"fmt"
+	"gorm.io/gorm"
 	"time"
 )
 
 type User struct {
+	gorm.Model
 	FirstName string
 	LastName  string
 	Gender    string
@@ -61,4 +63,14 @@ func (d *Database) CreateUser(user *User) {
 		//}).Error(err)
 		fmt.Println("CreateUser Error", err)
 	}
+}
+
+func (d *Database) GetUserByDate(accountID string) ([]User, error) {
+	var users []User
+	d.db.Where("month(birth) = ? and day(birth) = ?", 8, 8).Find(&users)
+
+	for _, user := range users {
+		fmt.Println(user)
+	}
+	return users, nil
 }
