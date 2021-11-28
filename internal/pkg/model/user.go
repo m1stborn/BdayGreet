@@ -2,17 +2,15 @@ package model
 
 import (
 	"fmt"
-	"gorm.io/gorm"
 	"time"
 )
 
 type User struct {
-	gorm.Model
-	FirstName string
-	LastName  string
-	Gender    string
-	Birth     time.Time
-	Email     string
+	FirstName string    `json:"firstName"`
+	LastName  string    `json:"lastName"`
+	Gender    string    `json:"gender"`
+	Birth     time.Time `json:"birth"`
+	Email     string    `json:"email"`
 }
 
 var (

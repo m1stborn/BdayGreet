@@ -22,7 +22,7 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func main() {
-	model.DB.Init(dbUri)
+	model.MongoDB.Init(dbUri)
 
 	router := httprouter.New()
 
