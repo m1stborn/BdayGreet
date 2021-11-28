@@ -27,7 +27,9 @@ func main() {
 	router := httprouter.New()
 
 	router.GET("/", Index)
-	router.GET("/api/bdaygreet", HandleBdayGreet)
+	router.GET("/api/bdaygreet", HandleBdayGreetJson)
+	router.GET("/api/bdaygreet/json", HandleBdayGreetJson)
+	router.GET("/api/bdaygreet/xml", HandleBdayGreetXml)
 
 	log.Fatal(http.ListenAndServe(port, router))
 }
