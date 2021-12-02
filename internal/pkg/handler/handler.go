@@ -9,8 +9,11 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
+var GetUserByDate = model.DB.GetUserByDate
+
 func HandleBdayGreet(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	users, _ := model.DB.GetUserByDate(8, 8)
+	//users, _ := model.DB.GetUserByDate(8, 8)
+	users, _ := GetUserByDate(8, 8)
 	for _, user := range users {
 		replyMsg := fmt.Sprintf("Subject: Happy birthday!\nHappy birthday, dear %s!\n", user.FirstName)
 		fmt.Fprintf(w, replyMsg)
