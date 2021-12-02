@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -48,7 +47,6 @@ func TestHandleBdayGreet(t *testing.T) {
 		t.Errorf("handler returned wrong status code: got %v", status)
 	}
 
-	fmt.Println(rr.Body.String())
 	expected := `Subject: Happy birthday!
 Happy birthday, dear Robert!
 We offer special discount 20% for the following items:
