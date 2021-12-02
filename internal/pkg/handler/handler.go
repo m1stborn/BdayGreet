@@ -9,8 +9,11 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
+var FindByBday = model.MongoDB.FindByBday
+
 func HandleBdayGreet(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	users, _ := model.MongoDB.FindByBday(8, 8)
+	//users, _ := model.MongoDB.FindByBday(8, 8)
+	users, _ := FindByBday(8, 8)
 	for _, user := range users {
 		replyMsg := fmt.Sprintf("Subject: Happy birthday!\nHappy birthday, dear %s!\n", user["firstname"])
 		fmt.Fprintf(w, replyMsg)
