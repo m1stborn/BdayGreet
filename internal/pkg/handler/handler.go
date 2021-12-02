@@ -36,8 +36,12 @@ type HtmlUser struct {
 	AgeGt49 bool
 }
 
+var GetUserByDate = model.DB.GetUserByDate
+
 func HandleBdayGreet(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	users, _ := model.DB.GetUserByDate(12, 22)
+	//users, _ := model.DB.GetUserByDate(12, 22)
+	users, _ := GetUserByDate(12, 22)
+
 	var names []HtmlUser
 	var gt49 bool
 
