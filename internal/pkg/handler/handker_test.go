@@ -14,10 +14,10 @@ import (
 
 func TestHandleBdayGreet(t *testing.T) {
 	// integration test on http requests to HandleBdayGreet
-	old := GetUSerByData
-	defer func() { GetUSerByData = old }()
+	old := GetUserByDate
+	defer func() { GetUserByDate = old }()
 
-	GetUSerByData = func(month int, day int) ([]model.User, error) {
+	GetUserByDate = func(month int, day int) ([]model.User, error) {
 		return []model.User{
 			{
 				FirstName: "Robert",
