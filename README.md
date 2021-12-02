@@ -4,7 +4,7 @@ Get a greeting message to all members whose birthday is today via a RESTful api.
 
 ## API
 
-- GET `/api/bdaygreet` 
+- GET `https://bdaygreeting.herokuapp.com/api/bdaygreet` 
 
 ### How to run in local env
 
