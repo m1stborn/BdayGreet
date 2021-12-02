@@ -16,10 +16,13 @@ type greetMsg struct {
 	Content string
 }
 
+var GetUserByDate = model.DB.GetUserByDate
+
 func HandleBdayGreetJson(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	var msgs []greetMsg
 
-	users, _ := model.DB.GetUserByDate(8, 8)
+	//users, _ := model.DB.GetUserByDate(8, 8)
+	users, _ := GetUserByDate(8, 8)
 
 	for _, user := range users {
 		title := fmt.Sprintf("Subject: Happy birthday!")
@@ -43,7 +46,8 @@ func HandleBdayGreetJson(w http.ResponseWriter, r *http.Request, ps httprouter.P
 func HandleBdayGreetXml(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	var msgs []greetMsg
 
-	users, _ := model.DB.GetUserByDate(8, 8)
+	//users, _ := model.DB.GetUserByDate(8, 8)
+	users, _ := GetUserByDate(8, 8)
 
 	for _, user := range users {
 		title := fmt.Sprintf("Subject: Happy birthday!")
